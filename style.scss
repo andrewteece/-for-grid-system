@@ -1,0 +1,16 @@
+// VARIABLES
+
+$total-columns: 12;
+
+body {
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+}
+
+.col,
+[class*='col-'] {
+  padding: 0.5rem;
+  background: lightblue;
+  border: 2px solid steelblue;
+  text-align: center;
+}
