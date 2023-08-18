@@ -7,10 +7,28 @@ body {
   font-weight: bold;
 }
 
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat($total-columns, 1fr);
+  gap: 1rem;
+}
+
+// demo only
+
 .col,
 [class*='col-'] {
   padding: 0.5rem;
   background: lightblue;
   border: 2px solid steelblue;
   text-align: center;
+}
+
+[class*='col-'] {
+  grid-column: 1 / -1;
+}
+
+@for $column-count from 1 through $total-columns {
+  .col-#{$column-count} {
+    grid-column: span $column-count;
+  }
 }
