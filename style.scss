@@ -9,7 +9,7 @@ body {
 
 .main-grid {
   display: grid;
-  grid-template-columns: repeat($total-columns, 1fr);
+  grid-template-columns: repeat($total-columns, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -28,7 +28,29 @@ body {
 }
 
 @for $column-count from 1 through $total-columns {
+  // always a column
   .col-#{$column-count} {
     grid-column: span $column-count;
+  }
+
+  // small screens and up
+  @media (min-width: 20em) {
+    .col-sm-#{$column-count} {
+      grid-column: span $column-count;
+    }
+  }
+
+  // medium screens and up
+  @media (min-width: 40em) {
+    .col-med-#{$column-count} {
+      grid-column: span $column-count;
+    }
+  }
+
+  // large screens and up
+  @media (min-width: 60em) {
+    .col-lg-#{$column-count} {
+      grid-column: span $column-count;
+    }
   }
 }
